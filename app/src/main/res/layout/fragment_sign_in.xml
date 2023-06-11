@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PartUI.Authorization.SignInFragment">
+
+    <TextView
+        android:layout_marginTop="150dp"
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Авторизация"
+        android:textColor="@color/black"
+        android:fontFamily="@font/inter_bold"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="331dp"
+        android:layout_height="71dp"
+        android:fontFamily="@font/inter_medium"
+        android:textColor="@color/gray"
+        android:textSize="15dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/auth_title"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/authBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/black_round_default_button"
+        android:text="Войти"
+        android:fontFamily="@font/inter_medium"
+        android:textSize="17dp"
+        android:textAllCaps="false"
+        android:elevation="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="120dp"/>
+
+    <TextView
+        android:id="@+id/txtRegistration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter"
+        android:textSize="15dp"
+        android:textColor="@color/gray"
+        android:text="Нет аккаунта? Зарегистрироваться"
+        app:layout_constraintStart_toStartOf="@+id/authBtn"
+        app:layout_constraintTop_toBottomOf="@+id/authBtn"
+        android:layout_marginTop="10dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/userLogin_layout"
+        style="@style/DefaultTextInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="25dp"
+        android:elevation="8dp"
+        android:hint="Логин"
+        android:theme="@style/EditTextThemeOverlay"
+        app:counterMaxLength="1"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userLogin_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#F0F4F4"
+            android:fontFamily="@font/inter_medium"
+            android:lines="1"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:minLines="1"
+            android:paddingStart="20dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="20dp"
+            android:shadowRadius="@integer/material_motion_duration_long_1"
+            android:singleLine="true"
+            android:textColorHighlight="@color/textColorHighlight"
+            app:boxBackgroundColor="@color/linear" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/userPassword_layout"
+        style="@style/DefaultTextInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:elevation="8dp"
+        android:hint="Пароль"
+        android:theme="@style/EditTextThemeOverlay"
+        app:counterMaxLength="1"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userLogin_layout">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userPassword_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#F0F4F4"
+            android:lines="1"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:fontFamily="@font/inter_medium"
+            android:minLines="1"
+            android:paddingStart="20dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="20dp"
+            android:shadowRadius="@integer/material_motion_duration_long_1"
+            android:singleLine="true"
+            android:textColorHighlight="@color/textColorHighlight"
+            app:boxBackgroundColor="@color/linear" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/txtForgetPass"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/inter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Забыли пароль?"
+        android:textColor="@color/gray"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/userPassword_layout"
+        app:layout_constraintTop_toBottomOf="@+id/userPassword_layout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

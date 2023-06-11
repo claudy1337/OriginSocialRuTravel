@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PartUI.Authorization.ForgetProfileFragment">
+
+    <ImageView
+        android:layout_marginTop="80dp"
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_forget"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_bold"
+        android:text="Забыли пароль"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="331dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="@string/forget_title"
+        android:textAlignment="center"
+        android:textColor="@color/gray"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/userLogin_layout"
+        style="@style/DefaultTextInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:elevation="8dp"
+        android:hint="Логин"
+        android:layout_marginTop="25dp"
+        android:theme="@style/EditTextThemeOverlay"
+        app:counterMaxLength="1"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userLogin_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#F0F4F4"
+            android:fontFamily="@font/inter_medium"
+            android:lines="1"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:minLines="1"
+            android:paddingStart="20dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="20dp"
+            android:shadowRadius="@integer/material_motion_duration_long_1"
+            android:singleLine="true"
+            android:textColorHighlight="@color/textColorHighlight"
+            app:boxBackgroundColor="@color/linear" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/userEmail_layout"
+        style="@style/DefaultTextInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:elevation="8dp"
+        android:hint="Почта"
+        android:layout_marginTop="10dp"
+        android:theme="@style/EditTextThemeOverlay"
+        app:counterMaxLength="1"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userLogin_layout">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userEmail_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#F0F4F4"
+            android:fontFamily="@font/inter_medium"
+            android:lines="1"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:minLines="1"
+            android:paddingStart="20dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="20dp"
+            android:shadowRadius="@integer/material_motion_duration_long_1"
+            android:singleLine="true"
+            android:textColorHighlight="@color/textColorHighlight"
+            app:boxBackgroundColor="@color/linear" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/sendBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/black_round_default_button"
+        android:elevation="30dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="Отправить"
+        android:textAllCaps="false"
+        android:textSize="17dp"
+        android:layout_marginBottom="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/auth_acc_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter"
+        android:text="Войти в аккаунт"
+        android:textColor="@color/gray"
+        android:textSize="15dp"
+        android:layout_margin="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/userEmail_layout"
+        app:layout_constraintTop_toBottomOf="@+id/userEmail_layout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

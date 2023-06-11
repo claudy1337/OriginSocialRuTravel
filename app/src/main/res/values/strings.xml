@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SocialRuTravel</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_title">Путешествия с нами – это возможность встретить новых друзей, узнать уникальные истории и создать незабываемые воспоминания. В нашей коллекции мест для посещения есть что-то особенное для каждого путешественника</string>
+    <string name="auth_title">Войдите в аккаунт что бы пользоваться сервисом или создайте его</string>
+    <string name="forget_title">Введите ваш e-mail и логин. Мы вышлем Вам инструкцию по восстановлению пароля</string>
+    <string name="default_title">Внезапно, представители современных социальных резервов преданы социально-демократической анафеме...</string>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/searchApartments"
+        android:title="Жилье"
+        android:icon="@drawable/ic_menu_room"/>
+
+    <item android:id="@+id/anonymousMessengerFragment"
+        android:title="Сообщения"
+        android:icon="@drawable/ic_menu_message" />
+
+    <item android:id="@+id/searchTour"
+        android:icon="@drawable/ic_menu_search"
+        android:title="Поиск"/>
+
+    <item android:id="@+id/anonymousProfileFragment"
+        android:title="Профиль"
+        android:icon="@drawable/ic_menu_profile"/>
+
+    <item android:id="@+id/anonymousSettingFragment"
+        android:title="Настройки"
+        android:icon="@drawable/ic_menu_setting"/>
+</menu>

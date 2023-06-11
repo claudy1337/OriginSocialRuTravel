@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/searchTour">
+
+    <fragment
+        android:id="@+id/searchTour"
+        android:name="com.autonture.originsocialrutravel.PartUI.Tour.HomeTourFragment"
+        android:label="fragment_home_tour"
+        tools:layout="@layout/fragment_home_tour" />
+    <fragment
+        android:id="@+id/signIn"
+        android:name="com.autonture.originsocialrutravel.PartUI.Authorization.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signIn_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_signIn_to_forgetProfileFragment"
+            app:destination="@id/forgetProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.autonture.originsocialrutravel.PartUI.Profile.UserProfileFragment"
+        android:label="fragment_user_profile"
+        tools:layout="@layout/fragment_user_profile" />
+    <fragment
+        android:id="@+id/anonymousProfileFragment"
+        android:name="com.autonture.originsocialrutravel.PartUI.Profile.AnonymousProfileFragment"
+        android:label="fragment_anonymous_profile"
+        tools:layout="@layout/fragment_anonymous_profile" >
+        <action
+            android:id="@+id/action_anonymousProfileFragment_to_signIn2"
+            app:destination="@id/signIn" />
+        <action
+            android:id="@+id/action_anonymousProfileFragment_to_userProfileFragment2"
+            app:destination="@id/userProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userMessengerFragment"
+        android:name="com.autonture.originsocialrutravel.PartUI.Messenger.MessengerFragment"
+        android:label="fragment_messenger"
+        tools:layout="@layout/fragment_messenger" />
+    <fragment
+        android:id="@+id/anonymousMessengerFragment"
+        android:name="com.autonture.originsocialrutravel.PartUI.Messenger.AnonymousMessengerFragment"
+        android:label="fragment_anonymous_messenger"
+        tools:layout="@layout/fragment_anonymous_messenger" >
+
+        <action
+            android:id="@+id/action_anonymousMessengerFragment_to_userMessengerFragment2"
+            app:destination="@id/userMessengerFragment" />
+        <action
+            android:id="@+id/action_anonymousMessengerFragment_to_signIn3"
+            app:destination="@id/signIn" />
+    </fragment>
+    <fragment
+        android:id="@+id/anonymousSettingFragment"
+        android:name="com.autonture.originsocialrutravel.PartUI.Setting.AnonymousSettingFragment"
+        android:label="fragment_anonymous_setting"
+        tools:layout="@layout/fragment_anonymous_setting" >
+        <action
+            android:id="@+id/action_anonymousSettingFragment_to_signIn3"
+            app:destination="@id/signIn" />
+        <action
+            android:id="@+id/action_anonymousSettingFragment_to_userSettingFragment2"
+            app:destination="@id/userSettingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userSettingFragment"
+        android:name="com.autonture.originsocialrutravel.PartUI.Setting.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/searchApartments"
+        android:name="com.autonture.originsocialrutravel.PartUI.Apartment.RoomSearchFragment"
+        android:label="fragment_room_search"
+        tools:layout="@layout/fragment_room_search" >
+        <action
+            android:id="@+id/action_searchApartments_to_currentApartments"
+            app:destination="@id/currentApartments" />
+    </fragment>
+    <fragment
+        android:id="@+id/currentApartments"
+        android:name="com.autonture.originsocialrutravel.PartUI.Apartment.CurrentApartments"
+        android:label="fragment_current_apartments"
+        tools:layout="@layout/fragment_current_apartments" >
+        <action
+            android:id="@+id/action_currentApartments_to_searchApartments"
+            app:destination="@id/searchApartments" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.autonture.originsocialrutravel.PartUI.Authorization.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_registrationFragment_to_signIn"
+            app:destination="@id/signIn" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgetProfileFragment"
+        android:name="com.autonture.originsocialrutravel.PartUI.Authorization.ForgetProfileFragment"
+        android:label="fragment_forget_profile"
+        tools:layout="@layout/fragment_forget_profile" >
+        <action
+            android:id="@+id/action_forgetProfileFragment_to_signIn"
+            app:destination="@id/signIn" />
+    </fragment>
+</navigation>
