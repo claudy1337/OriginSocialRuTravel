@@ -28,7 +28,7 @@ class SplashScreenActivity : AppCompatActivity() {
         val delayInMillis = 5000L
         val intervalMillis = 2000L
         fadeIn(intervalMillis)
-        launchActivityAfterDelay(this, delayInMillis, SecurityCodeAuthenticationActivity::class.java, MainActivity::class.java)
+        launchActivityAfterDelay(this, delayInMillis, SecurityCodeAuthenticationActivity::class.java, SecurityCodeAuthenticationActivity::class.java)
     }
 
     private fun fadeIn(intervalInMillis: Long){
@@ -56,6 +56,7 @@ class SplashScreenActivity : AppCompatActivity() {
                     context.startActivity(intent)
                 }
                 else{
+                    finish()
                     val intent = Intent(context, anonymActivity)
                     context.startActivity(intent)
                 }

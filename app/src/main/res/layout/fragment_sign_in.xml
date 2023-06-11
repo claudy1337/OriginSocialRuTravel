@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".PartUI.Authorization.SignInFragment">
 
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_auth"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:layout_marginTop="150dp"
         android:id="@+id/textView2"
@@ -85,7 +95,7 @@
             android:backgroundTint="#F0F4F4"
             android:fontFamily="@font/inter_medium"
             android:lines="1"
-            android:maxLength="10"
+            android:maxLength="20"
             android:maxLines="1"
             android:minLines="1"
             android:paddingStart="20dp"
@@ -121,7 +131,7 @@
             android:layout_marginBottom="10dp"
             android:backgroundTint="#F0F4F4"
             android:lines="1"
-            android:maxLength="10"
+            android:maxLength="20"
             android:maxLines="1"
             android:fontFamily="@font/inter_medium"
             android:minLines="1"

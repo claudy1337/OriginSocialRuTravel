@@ -48,6 +48,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/placeList"
+                tools:listitem="@layout/place_item"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -57,7 +58,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/searchRegion"/>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/tourList"
+                android:id="@+id/cityList"
+                tools:listitem="@layout/city_item"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -70,7 +72,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tourList">
+                app:layout_constraintTop_toBottomOf="@+id/cityList">
 
                 <TextView
                     android:id="@+id/textView14"

@@ -1,4 +1,4 @@
-package com.autonture.originsocialrutravel
+package com.autonture.originsocialrutravel.PartUI.Tour
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

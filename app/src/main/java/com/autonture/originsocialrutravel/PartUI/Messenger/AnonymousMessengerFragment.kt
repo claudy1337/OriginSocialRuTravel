@@ -27,10 +27,10 @@ class AnonymousMessengerFragment : Fragment() {
         super.onCreate(savedInstanceState)
         var isLogin = PrefsManager(requireContext()).isLogged()
         if(isLogin){
-            MAIN.navController.navigate(R.id.action_anonymousMessengerFragment_to_userMessengerFragment2)
+
         }
         else{
-            MAIN.navController.navigate(R.id.action_anonymousMessengerFragment_to_signIn3)
+
         }
     }
 }

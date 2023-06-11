@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.autonture.originsocialrutravel.R
+import com.autonture.originsocialrutravel.Utilis.PrefsManager
 import com.autonture.originsocialrutravel.databinding.FragmentUserProfileBinding
 
 
@@ -19,6 +20,11 @@ class UserProfileFragment : Fragment() {
     ): View? {
         binding = FragmentUserProfileBinding.inflate(layoutInflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+       // PrefsManager(requireContext())
     }
 
     companion object {
