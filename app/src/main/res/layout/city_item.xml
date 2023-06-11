@@ -23,19 +23,22 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <ImageView
                 android:id="@+id/imgCity"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="389dp"
                 android:maxWidth="389dp"
-                android:textAlignment="textStart"
+                android:minWidth="389dp"
                 android:maxHeight="380dp"
+                android:layout_height="380dp"
+                android:minHeight="380dp"
                 android:scaleType="centerCrop"
+                android:src="@drawable/default_city"
+                android:textAlignment="textStart"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/default_city" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/ratingCity"
@@ -68,7 +71,8 @@
 
             <TextView
                 android:id="@+id/titleCity"
-                android:layout_width="wrap_content"
+                android:layout_width="280dp"
+                android:maxLength="100"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginBottom="20dp"

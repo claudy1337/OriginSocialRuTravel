@@ -39,6 +39,16 @@ android {
 }
 
 dependencies {
+    def lifecycle_version = "2.4.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+
+    implementation 'io.reactivex.rxjava3:rxkotlin:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
+
+    implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
+
     // retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
 

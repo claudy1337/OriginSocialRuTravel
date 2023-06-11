@@ -25,9 +25,6 @@ class GenericTextWatcher(private val currentView: View, private val nextView: Vi
             //You can use EditText4 same as above to hide the keyboard
         }
     }
-
-
-
 }
 
 class GenericKeyEvent(private val currentView: EditText, private val previousView: EditText?) :

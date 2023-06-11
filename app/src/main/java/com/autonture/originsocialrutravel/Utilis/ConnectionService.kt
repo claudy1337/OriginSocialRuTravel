@@ -3,15 +3,17 @@ package com.autonture.originsocialrutravel.Utilis
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 class ConnectionService {
-    fun service(): ApiService{
+    fun service(): ApiService {
         val interceptor = HttpLoggingInterceptor().apply { setLevel(HttpLoggingInterceptor.Level.BODY) }
         val client = OkHttpClient.Builder().addInterceptor(interceptor)
         val retrofit = Retrofit.Builder()
             .baseUrl("http://impervm-001-site1.atempurl.com/api/")
             .client(client.build())
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create()).build()
         val apiService  = retrofit.create(ApiService::class.java)
         return apiService
