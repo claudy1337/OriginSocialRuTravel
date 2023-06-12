@@ -101,7 +101,13 @@
         android:id="@+id/userSettingFragment"
         android:name="com.autonture.originsocialrutravel.PartUI.Setting.SettingFragment"
         android:label="fragment_setting"
-        tools:layout="@layout/fragment_setting" />
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_userSettingFragment_to_anonymousSettingFragment"
+            app:destination="@id/anonymousSettingFragment"
+            app:popUpTo="@id/nav_main"
+            app:popUpToInclusive="true"/>
+    </fragment>
     <fragment
         android:id="@+id/searchApartments"
         android:name="com.autonture.originsocialrutravel.PartUI.Apartment.RoomSearchFragment"
@@ -119,6 +125,11 @@
         <action
             android:id="@+id/action_currentApartments_to_searchApartments"
             app:destination="@id/searchApartments" />
+        <action
+            android:id="@+id/action_currentApartments_self"
+            app:destination="@id/currentApartments"
+            app:popUpTo="@id/nav_main"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"

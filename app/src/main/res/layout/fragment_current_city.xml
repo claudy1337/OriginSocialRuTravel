@@ -41,7 +41,7 @@
                         android:id="@+id/imgCity"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/default_city"
+                        android:src="@drawable/default_image"
                         android:scaleType="centerCrop"/>
 
                     <TextView
@@ -49,11 +49,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Название"
+                        android:textAlignment="textStart"
                         android:textSize="30dp"
                         android:elevation="8dp"
                         android:fontFamily="@font/poppins_bold"
                         android:textColor="@color/white"
-                        android:gravity="center"
                         app:layout_constraintBottom_toTopOf="@+id/textView4"
                         app:layout_constraintStart_toStartOf="@+id/textView4" />
 
@@ -64,6 +64,7 @@
                         android:layout_marginBottom="20dp"
                         android:autoSizeTextType="uniform"
                         android:elevation="8dp"
+                        android:textAlignment="textStart"
                         android:fontFamily="@font/poppins_medium"
                         android:maxWidth="280dp"
                         android:layout_marginLeft="20dp"

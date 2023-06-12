@@ -56,6 +56,11 @@ class CurrentApartments : Fragment() {
         setUpObservers()
         apartment.id?.let { viewModel.getComments(it) }
 
+
+        val bitmap = apartment.Photos[0].photo?.let { decodeBase64ToBitmap(it) }
+        binding.imgApartment.setImageBitmap(bitmap)
+        binding.imgApartment2.setImageBitmap(bitmap)
+
         binding.btnSendComment.setOnClickListener {
             val currentDate = getCurrentDate()
             var user = PrefsManager(requireContext()).getUserId()
@@ -67,6 +72,9 @@ class CurrentApartments : Fragment() {
                         if (response.isSuccessful) {
                             // Запрос успешно выполнен
                             Toast.makeText(requireContext(), "Комментарий добавлен", Toast.LENGTH_SHORT).show()
+                            val bundle = Bundle()
+                            bundle.putSerializable("apartment", apartment)
+                            findNavController().navigate(R.id.action_currentApartments_self, bundle)
                             setUpObservers()
                         } else {
                             // Обработка ошибки
@@ -79,11 +87,13 @@ class CurrentApartments : Fragment() {
             }
         }
     }
+
     fun getCurrentDate(): String {
         val currentDate = Date()
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         return dateFormat.format(currentDate)
     }
+
     private fun setUpObservers() {
         viewModel.comments.observe(viewLifecycleOwner) { comments ->
             this.comments = comments

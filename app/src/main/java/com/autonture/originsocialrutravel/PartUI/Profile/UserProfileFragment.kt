@@ -59,13 +59,13 @@ class UserProfileFragment : Fragment() {
                     }
                 } else {
                     // Ошибка получения данных
-                    Toast.makeText(requireContext(), "Ошибка получения данных", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Ошибка получения данных обновитесь", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<User>, t: Throwable) {
                 // Обработка ошибки
-                Toast.makeText(requireContext(), "Ошибка сети: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Ошибка сети обновитесь: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }

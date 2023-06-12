@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.autonture.originsocialrutravel.Utilis.Adapters.PostAdapter
 import com.autonture.originsocialrutravel.Utilis.Classes.Post
+import com.autonture.originsocialrutravel.Utilis.PrefsManager
 import com.autonture.originsocialrutravel.Utilis.ViewModels.PostViewModel
 import com.autonture.originsocialrutravel.databinding.FragmentPostsBinding
 
@@ -31,7 +32,11 @@ class PostsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpObservers()
-        viewModel.getPosts(11)
+        var idUser = PrefsManager(requireContext()).getUserId()
+        if (idUser != null){
+            viewModel.getPosts(idUser)
+        }
+
     }
 
     private fun setUpObservers() {

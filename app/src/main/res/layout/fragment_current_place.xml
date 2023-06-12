@@ -39,10 +39,11 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/placeImage"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/default_place" />
+                        android:src="@drawable/default_image" />
 
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -65,16 +66,17 @@
                         <TextView
                             android:id="@+id/placeName"
                             android:layout_width="wrap_content"
+                            android:textAlignment="textStart"
                             android:layout_height="wrap_content"
+                            android:maxHeight="60dp"
                             android:layout_alignParentTop="true"
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentBottom="true"
                             android:elevation="8dp"
                             android:fontFamily="@font/poppins_bold"
-                            android:gravity="center"
-                            android:text="Название"
-                            android:textSize="30dp"
+                            android:text=""
                             android:textColor="@color/white"
+                            android:textSize="30dp"
                             app:layout_constraintBottom_toTopOf="@+id/placeCity"
                             app:layout_constraintStart_toStartOf="@+id/placeCity" />
 
@@ -83,6 +85,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="30dp"
+                            android:maxHeight="150dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="20dp"
                             android:autoSizeTextType="uniform"
@@ -90,7 +93,7 @@
                             android:textSize="20dp"
                             android:fontFamily="@font/inter"
                             android:maxWidth="280dp"
-                            android:text="Галеева 3"
+                            android:text=""
                             android:textColor="@color/white"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent" />
@@ -117,7 +120,8 @@
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/inter_medium"
                 android:maxWidth="350dp"
-                android:text="Казань Ул Галеева 3"
+                android:text=""
+                android:textAlignment="textStart"
                 android:textSize="19dp"
                 android:textColor="@color/light_gray"
                 app:layout_constraintStart_toStartOf="@+id/textView9"
@@ -176,9 +180,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <ImageView
+                        android:id="@+id/imagePlace2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/default_place"
+                        android:src="@drawable/default_image"
                         android:scaleType="centerCrop"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -189,6 +194,7 @@
                 android:layout_marginHorizontal="5dp"
                 android:fontFamily="@font/poppins"
                 android:maxWidth="230dp"
+                android:textAlignment="textStart"
                 android:text="@string/image_title"
                 android:textSize="16dp"
                 app:layout_constraintBottom_toBottomOf="@+id/cardImage"
@@ -198,16 +204,67 @@
 
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_bold"
-                android:text="Комментарии"
-                android:textColor="@color/black"
-                android:textSize="25dp"
                 android:layout_marginTop="15dp"
+                android:text="Комментарии"
+                android:fontFamily="@font/inter_bold"
+                android:textSize="25dp"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@+id/cardImage"
                 app:layout_constraintTop_toBottomOf="@+id/cardImage" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/first_comm_layout"
+                style="@style/DefaultTextInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="15dp"
+                android:elevation="8dp"
+                android:hint="Комментарий"
+                android:gravity="top"
+                android:theme="@style/EditTextThemeOverlay"
+                app:counterMaxLength="40"
+                app:errorTextAppearance="@style/ErrorTextAppearance"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView17">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/first_comm_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="#F0F4F4"
+                    android:lines="3"
+                    android:textAlignment="textStart"
+                    android:maxLength="85"
+                    android:maxLines="3"
+                    android:minLines="1"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="20dp"
+                    android:shadowRadius="@integer/material_motion_duration_long_1"
+                    android:singleLine="true"
+                    android:textColorHighlight="@color/textColorHighlight"
+                    app:boxBackgroundColor="@color/linear" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnSendComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/black_default_button"
+                android:fontFamily="@font/inter_medium"
+                android:layout_marginTop="15dp"
+                android:text="Написать Комментарий"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/first_comm_layout" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -217,9 +274,10 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView20">
+                app:layout_constraintTop_toBottomOf="@+id/btnSendComment">
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/commentsList"
                     android:layout_width="match_parent"
                     tools:listitem="@layout/comment_item"
                     android:layout_height="match_parent"
