@@ -16,7 +16,7 @@ class TownAdapter (val context: Context, val myTowns: ArrayList<Town>): Recycler
     class TownHolder(val binding: CityItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(post: Town) {
             binding.nameCity.text = post.name
-            binding.titleCity.text = post.description
+            binding.titleCity.text = "${post.description}..."
             binding.ratingCity.text = post.rating.toString()
             if (post.Photos != null) {
                 binding.imgCity.setImageBitmap(post.Photos[0].photo?.let { decodeBase64ToBitmap(it) })

@@ -14,7 +14,12 @@ class PrefsManager(val context: Context)  {
     fun isLogged():Boolean{
         return prefs.getBoolean("Login", false)
     }
-
+    fun setId(Id:Int){
+        prefs.edit().putInt("Id", Id).apply()
+    }
+    fun getId(): Int {
+        return prefs.getInt("Id", 0)
+    }
 
     fun setCode(code:String){
         prefs.edit().putString("Code", code).apply()

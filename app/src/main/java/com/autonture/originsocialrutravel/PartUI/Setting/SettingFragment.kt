@@ -23,12 +23,8 @@ class SettingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btn.setOnClickListener {
-            PrefsManager(requireContext()).setCodeBoolean(true)
-        }
-        binding.btnFalse.setOnClickListener {
-            PrefsManager(requireContext()).setCodeBoolean(false)
-        }
+           // PrefsManager(requireContext()).setCodeBoolean(true)
+           // PrefsManager(requireContext()).setCodeBoolean(false)
     }
     companion object {
 

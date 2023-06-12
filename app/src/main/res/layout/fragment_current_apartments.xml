@@ -36,6 +36,7 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/imgApartment"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
@@ -46,22 +47,23 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        android:id="@+id/txtCity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Казань Галеева 3"
+                        android:text="Казань"
                         android:fontFamily="@font/poppins_bold"
                         android:gravity="center"
                         android:textSize="30dp"
                         android:textColor="@color/white"
-                        app:layout_constraintBottom_toTopOf="@+id/textView12"
-                        app:layout_constraintStart_toStartOf="@+id/textView12" />
+                        app:layout_constraintBottom_toTopOf="@+id/txtAddress"
+                        app:layout_constraintStart_toStartOf="@+id/txtAddress" />
 
                     <TextView
-                        android:id="@+id/textView12"
+                        android:id="@+id/txtAddress"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
-                        android:text="Цена:2000р"
+                        android:text="Галеева 3"
                         android:fontFamily="@font/inter"
                         android:textColor="@color/white"
                         android:textSize="20dp"
@@ -69,6 +71,7 @@
                         app:layout_constraintStart_toStartOf="parent" />
 
                     <TextView
+                        android:id="@+id/ratingText"
                         android:textSize="17dp"
                         android:textColor="@color/white"
                         android:layout_width="wrap_content"
@@ -100,18 +103,20 @@
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Комнат: 2"
+                android:text="Комнат: "
                 android:textSize="19dp"
                 android:textColor="@color/light_gray"
                 android:layout_marginTop="5dp"
                 app:layout_constraintStart_toStartOf="@+id/textView6"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
+
+
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Этаж: 14"
+                android:text="Этаж: "
                 android:textSize="19dp"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/light_gray"
@@ -134,8 +139,9 @@
                 android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Номер: 880055355"
+                android:text="Номер: "
                 android:textSize="19dp"
+                android:autoLink="phone"
                 android:textColor="@color/light_gray"
                 android:layout_marginTop="5dp"
                 app:layout_constraintStart_toStartOf="@+id/textView11"
@@ -185,6 +191,7 @@
                 android:maxWidth="230dp"
                 android:text="@string/default_title"
                 android:textColor="@color/gray"
+                android:layout_marginHorizontal="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/cardView2"
                 app:layout_constraintTop_toTopOf="@+id/cardView2" />
@@ -212,6 +219,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView17">
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/comments"
                     android:layout_width="match_parent"
                     tools:listitem="@layout/comment_item"
                     android:layout_height="match_parent"

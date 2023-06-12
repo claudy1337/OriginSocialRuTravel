@@ -59,7 +59,7 @@ class SignInFragment : Fragment() {
                                 // Вывод имени пользователя
                                 if (user.password == password){
                                     Toast.makeText(requireContext(), "Добро пожаловать: ${user.name}", Toast.LENGTH_SHORT).show()
-
+                                    user.id?.let { it1 -> PrefsManager(requireContext()).setId(it1) }
                                     PrefsManager(requireContext()).addToList(User(user.id!!,
                                         user.name, user.surname, user.login, user.password,
                                         user.email, user.countOfTravels, user.rating, user.townsRefID))

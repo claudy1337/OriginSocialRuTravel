@@ -38,7 +38,11 @@
         android:id="@+id/userProfileFragment"
         android:name="com.autonture.originsocialrutravel.PartUI.Profile.UserProfileFragment"
         android:label="fragment_user_profile"
-        tools:layout="@layout/fragment_user_profile" />
+        tools:layout="@layout/fragment_user_profile" >
+        <action
+            android:id="@+id/action_userProfileFragment_to_postsFragment"
+            app:destination="@id/postsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/anonymousProfileFragment"
         android:name="com.autonture.originsocialrutravel.PartUI.Profile.AnonymousProfileFragment"
@@ -148,4 +152,9 @@
         android:name="com.autonture.originsocialrutravel.PartUI.Tour.CurrentPlaceFragment"
         android:label="fragment_current_place"
         tools:layout="@layout/fragment_current_place" />
+    <fragment
+        android:id="@+id/postsFragment"
+        android:name="com.autonture.originsocialrutravel.PostsFragment"
+        android:label="fragment_posts"
+        tools:layout="@layout/fragment_posts" />
 </navigation>

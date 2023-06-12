@@ -33,7 +33,7 @@
                 android:layout_height="380dp"
                 android:minHeight="380dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/default_city"
+                android:src="@drawable/default_image"
                 android:textAlignment="textStart"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -21,6 +21,6 @@ class MainActivity : AppCompatActivity() {
         navController = Navigation.findNavController(this, R.id.activity_main_nav_host_fragment)
         MAIN = this
         setupWithNavController(binding.bottomNavigationView,navController)
-        PrefsManager(this).setLogged(false)
+       // PrefsManager(this).setLogged(false)
     }
 }
