@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Base64
 import androidx.fragment.app.Fragment
@@ -11,17 +12,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.autonture.originsocialrutravel.R
-import com.autonture.originsocialrutravel.Utilis.Classes.Apartment
-import com.autonture.originsocialrutravel.Utilis.Classes.Photo
-import com.autonture.originsocialrutravel.Utilis.Classes.Town
-import com.autonture.originsocialrutravel.Utilis.Classes.User
+import com.autonture.originsocialrutravel.Utilis.Adapters.ApartmentAdapter
+import com.autonture.originsocialrutravel.Utilis.Adapters.CommentAdapter
+import com.autonture.originsocialrutravel.Utilis.Classes.*
 import com.autonture.originsocialrutravel.Utilis.ConnectionService
 import com.autonture.originsocialrutravel.Utilis.PrefsManager
+import com.autonture.originsocialrutravel.Utilis.ViewModels.CommentViewModel
 import com.autonture.originsocialrutravel.databinding.FragmentCurrentApartmentsBinding
 import org.json.JSONObject
 import retrofit2.Call
@@ -31,7 +35,10 @@ import retrofit2.Response
 
 class CurrentApartments : Fragment() {
     private lateinit var binding: FragmentCurrentApartmentsBinding
-
+    private lateinit var adapterComments: CommentAdapter
+    private val viewModel: CommentViewModel by viewModels()
+    private lateinit var comments: List<Comments>
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.textView15.setOnClickListener {
@@ -40,8 +47,36 @@ class CurrentApartments : Fragment() {
             intent.data = Uri.parse("tel:$phoneNumber")
             startActivity(intent)
         }
-        init(4)
+        val apartment = arguments?.getSerializable("apartment") as? Apartment
+        apartment!!.id?.let { init(it) }
+
+        setUpObservers()
+        apartment.id?.let { viewModel.getComments(it) }
     }
+    private fun setUpObservers() {
+        viewModel.comments.observe(viewLifecycleOwner) { comments ->
+            this.comments = comments
+            adapterComments = CommentAdapter(requireContext(), comments as ArrayList<Comments>)
+            with(binding.commentsList) {
+                layoutManager = LinearLayoutManager(requireContext())
+                adapter = adapterComments
+            }
+        }
+
+        viewModel.comm.observe(viewLifecycleOwner) { comm ->
+            updatePost(comm)
+        }
+
+        viewModel.error.observe(viewLifecycleOwner) {
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun updatePost(post: Comments) {
+        adapterComments.updatePost(post)
+    }
+
+
     private fun init(id:Int){
         val getApartmentCall = ConnectionService().service().getApartment(id)
         getApartmentCall.enqueue(object : Callback<Apartment> {
@@ -107,7 +142,6 @@ class CurrentApartments : Fragment() {
         val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
         return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

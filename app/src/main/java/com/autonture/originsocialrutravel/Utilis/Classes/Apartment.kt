@@ -10,4 +10,9 @@ data class Apartment(
     var rating: Float? = null,
     var address :String? = null,
     var Photos: List<Photo>
-):java.io.Serializable
+):java.io.Serializable{
+    override fun hashCode(): Int {
+        return super.hashCode()
+    }
+}
+

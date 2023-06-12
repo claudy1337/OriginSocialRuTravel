@@ -5,7 +5,7 @@ data class Place(
     var title:String? = null,
     var address:String? = null,
     var townsRefID:Int? = null,
-    val rating:Int? = null,
+    val rating:Float? = null,
     var Photos: List<Photo>
 ):java.io.Serializable
 

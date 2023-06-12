@@ -1,5 +1,6 @@
 package com.autonture.originsocialrutravel.Utilis.ViewModels
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.autonture.originsocialrutravel.Utilis.Classes.Post
@@ -42,21 +43,24 @@ class PostViewModel : ViewModel() {
         }
     }
     private fun getUserPostObservable(post: Post) : Observable<Post>? {
-        return post.idUser?.let{
+        return post.usersId?.let{
             ConnectionService().service().getUserPost(it)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map { comments ->
-                    post.User = comments
+                .map { user ->
+                    post.User = user
                     post
                 }
                 .subscribeOn(Schedulers.io())
         }
     }
 
+    @SuppressLint("CheckResult")
     fun getPosts(id: Int) {
-        val subscribeBy = getPostsObservable(id)
-            .flatMap { post -> getUserPostObservable(post)!!}
+        getPostsObservable(id)
+            .flatMap { post -> getImagePostObservable(post)
+                getUserPostObservable(post)!!
+            }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(

@@ -1,4 +1,4 @@
-package com.autonture.originsocialrutravel
+package com.autonture.originsocialrutravel.PartUI.Profile
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,7 +12,6 @@ import com.autonture.originsocialrutravel.Utilis.Adapters.PostAdapter
 import com.autonture.originsocialrutravel.Utilis.Classes.Post
 import com.autonture.originsocialrutravel.Utilis.ViewModels.PostViewModel
 import com.autonture.originsocialrutravel.databinding.FragmentPostsBinding
-import com.autonture.originsocialrutravel.databinding.FragmentUserProfileBinding
 
 
 class PostsFragment : Fragment() {

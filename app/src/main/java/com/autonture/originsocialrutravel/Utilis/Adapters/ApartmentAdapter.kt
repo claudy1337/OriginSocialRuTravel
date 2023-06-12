@@ -12,8 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.autonture.originsocialrutravel.Utilis.Classes.Apartment
 import com.autonture.originsocialrutravel.databinding.ApartamentItemBinding
 
-class ApartmentAdapter (val context: Context, val myApartments: ArrayList<Apartment>): RecyclerView.Adapter<ApartmentAdapter.ApartmentHolder>() {
-
+class ApartmentAdapter (val context: Context, val myApartments: ArrayList<Apartment>, val onClick: (Apartment) -> Unit ={}): RecyclerView.Adapter<ApartmentAdapter.ApartmentHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ApartmentHolder {
         return ApartmentHolder(ApartamentItemBinding.inflate(LayoutInflater.from(context), parent, false))
@@ -22,6 +21,10 @@ class ApartmentAdapter (val context: Context, val myApartments: ArrayList<Apartm
     override fun onBindViewHolder(holder: ApartmentHolder, position: Int) {
         val post = myApartments[position]
         holder.bind(post)
+
+        holder.binding.root.setOnClickListener {
+            onClick(post)
+        }
 
     }
 

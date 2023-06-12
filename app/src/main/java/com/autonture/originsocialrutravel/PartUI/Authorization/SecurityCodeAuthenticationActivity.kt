@@ -35,6 +35,9 @@ class SecurityCodeAuthenticationActivity : AppCompatActivity() {
             txt3.setOnKeyListener(GenericKeyEvent(txt3, txt2))
             txt4.setOnKeyListener(GenericKeyEvent(txt4, txt3))
         }
+        binding.imageButtonBio.setOnClickListener {
+
+        }
     }
     private fun sendRequest(){
         //проверка

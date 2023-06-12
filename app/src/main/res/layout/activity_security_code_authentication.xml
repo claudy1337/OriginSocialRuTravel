@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_height="wrap_content"
@@ -40,41 +40,163 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7">
 
-       <EditText
-           android:id="@+id/txt1"
-           android:padding="10dp"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:maxLength="1"
-           android:maxLines="1"
-           android:inputType="number"/>
-        <EditText
-            android:id="@+id/txt2"
-            android:padding="10dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt1_layout"
+            style="@style/DefaultTextInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLength="1"
-            android:maxLines="1"
-            android:inputType="number"/>
-        <EditText
-            android:id="@+id/txt3"
+            android:elevation="8dp"
             android:padding="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLength="1"
-            android:maxLines="1"
-            android:inputType="number"/>
-        <EditText
-            android:id="@+id/txt4"
-            android:padding="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLength="1"
-            android:maxLines="1"
-            android:inputType="number"/>
+            android:layout_marginHorizontal="55dp"
+            android:textAlignment="center"
+            android:theme="@style/EditTextThemeOverlay"
+            app:counterMaxLength="1"
+            app:errorTextAppearance="@style/ErrorTextAppearance"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
 
-    </LinearLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#F0F4F4"
+                android:inputType="number"
+                android:lines="1"
+                android:maxLength="1"
+                android:maxLines="1"
+                android:minLines="1"
+                android:paddingStart="20dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="20dp"
+                android:shadowRadius="@integer/material_motion_duration_long_1"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:textColorHighlight="@color/textColorHighlight"
+                android:textSize="15dp"
+                app:boxBackgroundColor="@color/linear" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt2_layout"
+            style="@style/DefaultTextInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="8dp"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:theme="@style/EditTextThemeOverlay"
+            app:counterMaxLength="1"
+            app:errorTextAppearance="@style/ErrorTextAppearance"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txt1_layout"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#F0F4F4"
+                android:inputType="number"
+                android:lines="1"
+                android:maxLength="1"
+                android:maxLines="1"
+                android:minLines="1"
+                android:paddingStart="20dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="20dp"
+                android:shadowRadius="@integer/material_motion_duration_long_1"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:textColorHighlight="@color/textColorHighlight"
+                android:textSize="15dp"
+                app:boxBackgroundColor="@color/linear" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt3_layout"
+            style="@style/DefaultTextInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="8dp"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:theme="@style/EditTextThemeOverlay"
+            app:counterMaxLength="1"
+            app:errorTextAppearance="@style/ErrorTextAppearance"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txt2_layout"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#F0F4F4"
+                android:inputType="number"
+                android:lines="1"
+                android:maxLength="1"
+                android:maxLines="1"
+                android:minLines="1"
+                android:paddingStart="20dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="20dp"
+                android:shadowRadius="@integer/material_motion_duration_long_1"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:textColorHighlight="@color/textColorHighlight"
+                android:textSize="15dp"
+                app:boxBackgroundColor="@color/linear" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt4_layout"
+            style="@style/DefaultTextInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="8dp"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:theme="@style/EditTextThemeOverlay"
+            app:counterMaxLength="1"
+            app:errorTextAppearance="@style/ErrorTextAppearance"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txt3_layout"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#F0F4F4"
+                android:inputType="number"
+                android:lines="1"
+                android:maxLength="1"
+                android:maxLines="1"
+                android:minLines="1"
+                android:paddingStart="20dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="20dp"
+                android:shadowRadius="@integer/material_motion_duration_long_1"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:textColorHighlight="@color/textColorHighlight"
+                android:textSize="15dp"
+                app:boxBackgroundColor="@color/linear" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton
         android:id="@+id/imageButton"

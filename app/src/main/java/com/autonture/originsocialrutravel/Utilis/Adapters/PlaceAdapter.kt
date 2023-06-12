@@ -20,7 +20,7 @@ class PlaceAdapter (val context: Context, val myPlaces: ArrayList<Place>): Recyc
             binding.namePlace.text = post.title
             if (post.Photos != null) {
                 binding.imgPlace.setImageBitmap(post.Photos[0].photo?.let { decodeBase64ToBitmap(it) })
-            }
+           }
         }
         private fun decodeBase64ToBitmap(base64String: String): Bitmap {
             val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
@@ -42,8 +42,5 @@ class PlaceAdapter (val context: Context, val myPlaces: ArrayList<Place>): Recyc
     override fun onBindViewHolder(holder: PlaceHolder, position: Int) {
         val post = myPlaces[position]
         holder.bind(post)
-        holder.itemView.setOnClickListener {
-            onItemClick?.invoke(post)
-        }
     }
 }

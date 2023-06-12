@@ -30,15 +30,15 @@ class RoomSearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setUpObservers()
         viewModelApartment.getTowns()
-
-        binding.testCurrentApp.setOnClickListener {
-            MAIN.navController.navigate(R.id.action_searchApartments_to_currentApartments)
-        }
     }
     private fun setUpObservers() {
         viewModelApartment.posts.observe(viewLifecycleOwner) { posts ->
             this.apartments = posts
-            adapterApartment = ApartmentAdapter(requireContext(), posts as ArrayList<Apartment>)
+            adapterApartment = ApartmentAdapter(requireContext(), posts as ArrayList<Apartment>, onClick = {
+                val bundle = Bundle()
+                bundle.putSerializable("apartment", it)
+                findNavController().navigate(R.id.action_searchApartments_to_currentApartments, bundle)
+            })
             with(binding.apartmentList) {
                 layoutManager = LinearLayoutManager(requireContext())
                 adapter = adapterApartment

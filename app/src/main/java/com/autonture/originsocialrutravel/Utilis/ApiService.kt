@@ -2,6 +2,7 @@ package com.autonture.originsocialrutravel.Utilis
 
 import com.autonture.originsocialrutravel.Utilis.Classes.*
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -18,6 +19,10 @@ interface ApiService {
     @GET("user/Users/UserById/{id}")
     fun getId(@Path("id") id: Int): Call<User>
 
+    @GET("comment/Comments/CommentsByFlatId/{flatRefId}")
+    fun getCommentFlatId(@Path("flatRefId") flatRefId: Int): io.reactivex.rxjava3.core.Observable<List<Comments>>
+
+
 
     @GET("Towns/")
     fun getTowns(): io.reactivex.rxjava3.core.Observable<List<Town>>
@@ -26,6 +31,10 @@ interface ApiService {
 
     @GET("photo/Photos/PhotoByFlatId/{Id}")
     fun getPhotoApartmentId(@Path("Id") Id: Int): Call<Photo>
+
+    @GET("user/Users/UserById/{id}")
+    fun getUserByPost(@Path("id", encoded = false) id: Int): io.reactivex.rxjava3.core.Observable<User>
+
 
     @GET("photo/Photos/PhotoByTownId/{id}")
     fun getPhotos(@Path("id", encoded = false) id: Int): io.reactivex.rxjava3.core.Observable<List<Photo>>
@@ -38,13 +47,13 @@ interface ApiService {
     @GET("photo/Photos/PhotoByPostId/{id}")
     fun getPhotoPost(@Path("id", encoded = false) id: Int): io.reactivex.rxjava3.core.Observable<List<Photo>>
     @GET("user/Users/UserById/{id}")
-    fun getUserPost(@Path("id", encoded = false) id: Int): io.reactivex.rxjava3.core.Observable<UserById>
+    fun getUserPost(@Path("id", encoded = false) id: Int): io.reactivex.rxjava3.core.Observable<User>
 
     @GET("sight/Sights/")
     fun getPlaces(): io.reactivex.rxjava3.core.Observable<List<Place>>
 
-    @GET("photo/Photos/PhotoBySightId/{id}")
-    fun getPlacePhotos(@Path("id", encoded = false) id: Int): io.reactivex.rxjava3.core.Observable<List<Photo>>
+    @GET("photo/Photos/PhotoBySightId/{sightsRefId}")
+    fun getPlacePhotos(@Path("sightsRefId", encoded = false) sightsRefId: Int): io.reactivex.rxjava3.core.Observable<List<Photo>>
 
     @GET("flat/Flats/")
     fun getApartments(): io.reactivex.rxjava3.core.Observable<List<Apartment>>

@@ -50,7 +50,7 @@
                         android:id="@+id/txtCity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Казань"
+                        android:text=""
                         android:fontFamily="@font/poppins_bold"
                         android:gravity="center"
                         android:textSize="30dp"
@@ -63,7 +63,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
-                        android:text="Галеева 3"
+                        android:text=""
                         android:fontFamily="@font/inter"
                         android:textColor="@color/white"
                         android:textSize="20dp"
@@ -78,7 +78,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
                         android:drawableRight="@drawable/ic_rating"
-                        android:text="7.7"
+                        android:text=""
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -208,6 +208,19 @@
                 app:layout_constraintStart_toStartOf="@+id/cardView"
                 app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
+            <Button
+                android:id="@+id/btn"
+                android:text="Написать Комментарий"
+                android:textAllCaps="false"
+                android:fontFamily="@font/inter_medium"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/black_default_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
@@ -216,10 +229,10 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView17">
+                app:layout_constraintTop_toBottomOf="@+id/btn">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/comments"
+                    android:id="@+id/commentsList"
                     android:layout_width="match_parent"
                     tools:listitem="@layout/comment_item"
                     android:layout_height="match_parent"
