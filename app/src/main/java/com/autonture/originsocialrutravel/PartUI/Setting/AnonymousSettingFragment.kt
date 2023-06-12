@@ -25,7 +25,7 @@ class AnonymousSettingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var isLogin = PrefsManager(requireContext()).isLogged()
+        var isLogin = PrefsManager(requireContext()).isLogining()
         if(isLogin){
             MAIN.navController.navigate(R.id.action_anonymousSettingFragment_to_userSettingFragment2)
         }

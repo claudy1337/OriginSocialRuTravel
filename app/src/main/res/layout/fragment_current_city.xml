@@ -38,12 +38,14 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/imgCity"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/default_city"
                         android:scaleType="centerCrop"/>
 
                     <TextView
+                        android:id="@+id/nameCity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Название"
@@ -65,7 +67,8 @@
                         android:fontFamily="@font/poppins_medium"
                         android:maxWidth="280dp"
                         android:layout_marginLeft="20dp"
-                        android:text="@string/default_title"
+                        android:maxLength="100"
+                        android:text="@string/city_title"
                         android:textColor="@color/white"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent" />
@@ -118,6 +121,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView19">
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/topPlaceList"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_constraintBottom_toBottomOf="parent"

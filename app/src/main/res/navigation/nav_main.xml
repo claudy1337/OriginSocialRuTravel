@@ -151,7 +151,8 @@
         android:id="@+id/currentPlaceFragment"
         android:name="com.autonture.originsocialrutravel.PartUI.Tour.CurrentPlaceFragment"
         android:label="fragment_current_place"
-        tools:layout="@layout/fragment_current_place" />
+        tools:layout="@layout/fragment_current_place" >
+    </fragment>
     <fragment
         android:id="@+id/postsFragment"
         android:name="com.autonture.originsocialrutravel.PartUI.Profile.PostsFragment"

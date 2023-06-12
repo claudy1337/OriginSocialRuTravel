@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.autonture.originsocialrutravel.R
 import com.autonture.originsocialrutravel.Utilis.Adapters.PlaceAdapter
 import com.autonture.originsocialrutravel.Utilis.Adapters.TownAdapter
 import com.autonture.originsocialrutravel.Utilis.Classes.Place
@@ -47,7 +49,11 @@ class HomeTourFragment : Fragment() {
     private fun setUpObservers() {
         viewModelTown.towns.observe(viewLifecycleOwner) { towns ->
             this.towns = towns
-            adapterTown = TownAdapter(requireContext(), towns as ArrayList<Town>)
+            adapterTown = TownAdapter(requireContext(), towns as ArrayList<Town>, onClick = {
+                val bundle = Bundle()
+                bundle.putSerializable("city", it)
+                findNavController().navigate(R.id.action_searchTour_to_currentCityFragment, bundle)
+            })
             with(binding.cityList) {
                 layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
                 adapter = adapterTown
@@ -65,7 +71,11 @@ class HomeTourFragment : Fragment() {
     private fun setUpPlaceObservers(){
         viewModelPlace.places.observe(viewLifecycleOwner) {places->
             this.places = places
-            adapterPlace = PlaceAdapter(requireContext(), places as ArrayList<Place>)
+            adapterPlace = PlaceAdapter(requireContext(), places as ArrayList<Place>, onClick = {
+                val bundle = Bundle()
+                bundle.putSerializable("place", it)
+                findNavController().navigate(R.id.action_searchTour_to_currentPlaceFragment, bundle)
+            })
             with(binding.placeList){
                 layoutManager = LinearLayoutManager(requireContext(),  RecyclerView.HORIZONTAL, false)
                 adapter = adapterPlace

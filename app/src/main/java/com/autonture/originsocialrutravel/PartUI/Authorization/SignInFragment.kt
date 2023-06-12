@@ -24,7 +24,6 @@ import retrofit2.Response
 class SignInFragment : Fragment() {
     private lateinit var binding: FragmentSignInBinding
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -58,13 +57,16 @@ class SignInFragment : Fragment() {
                             if (user != null) {
                                 // Вывод имени пользователя
                                 if (user.password == password){
-                                    Toast.makeText(requireContext(), "Добро пожаловать: ${user.name}", Toast.LENGTH_SHORT).show()
-                                    user.id?.let { it1 -> PrefsManager(requireContext()).setId(it1) }
-                                    PrefsManager(requireContext()).addToList(User(user.id!!,
-                                        user.name, user.surname, user.login, user.password,
-                                        user.email, user.countOfTravels, user.rating, user.townsRefID))
+                                    PrefsManager(requireContext()).deleteCode()
+                                    PrefsManager(requireContext()).deleteUserId()
+                                    PrefsManager(requireContext()).deleteUserLogin()
+                                    PrefsManager(requireContext()).setCode(false)
 
-                                    PrefsManager(requireContext()).setLogged(true)
+                                    Toast.makeText(requireContext(), "Добро пожаловать: ${user.name}", Toast.LENGTH_SHORT).show()
+                                    PrefsManager(requireContext()).saveUserLogin(user.login)
+                                    user.id?.let { it1 -> PrefsManager(requireContext()).saveUserId(it1) }
+                                    PrefsManager(requireContext()).setLoginig(true)
+
                                     findNavController().navigate(R.id.action_signIn_to_userProfileFragment)
                                 }
                                 else{

@@ -40,9 +40,9 @@ class UserProfileFragment : Fragment() {
     }
 
     private fun init(){
-        val login = PrefsManager(requireContext()).getId()
-        val getUserCall = ConnectionService().service().getId(login)
-        getUserCall.enqueue(object : Callback<User> {
+        val login = PrefsManager(requireContext()).getUserId()
+        val getUserCall = login?.let { ConnectionService().service().getId(it) }
+        getUserCall?.enqueue(object : Callback<User> {
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 if (response.isSuccessful) {
                     val user = response.body()

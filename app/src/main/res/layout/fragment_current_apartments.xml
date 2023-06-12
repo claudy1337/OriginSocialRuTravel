@@ -148,6 +148,18 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
             <TextView
+                android:id="@+id/pice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Цена:"
+                android:layout_marginHorizontal="10dp"
+                android:textColor="@color/light_gray"
+                android:textSize="19dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView15"
+                app:layout_constraintStart_toEndOf="@+id/textView15"
+                app:layout_constraintTop_toTopOf="@+id/textView15" />
+
+            <TextView
                 android:id="@+id/textView16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -186,12 +198,14 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="230dp"
                 android:layout_height="wrap_content"
-                android:maxWidth="230dp"
-                android:text="@string/default_title"
-                android:textColor="@color/gray"
                 android:layout_marginHorizontal="5dp"
+                android:maxWidth="230dp"
+                android:text="@string/image_title"
+                android:textColor="@color/gray"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/cardView2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/cardView2"
                 app:layout_constraintTop_toTopOf="@+id/cardView2" />
@@ -208,18 +222,55 @@
                 app:layout_constraintStart_toStartOf="@+id/cardView"
                 app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
-            <Button
-                android:id="@+id/btn"
-                android:text="Написать Комментарий"
-                android:textAllCaps="false"
-                android:fontFamily="@font/inter_medium"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/first_comm_layout"
+                style="@style/DefaultTextInput"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="15dp"
+                android:elevation="8dp"
+                android:hint="Логин"
+                android:theme="@style/EditTextThemeOverlay"
+                app:counterMaxLength="40"
+                app:errorTextAppearance="@style/ErrorTextAppearance"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView17">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/first_comm_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="#F0F4F4"
+                    android:lines="3"
+                    android:textAlignment="textStart"
+                    android:maxLength="85"
+                    android:maxLines="3"
+                    android:minLines="1"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="20dp"
+                    android:shadowRadius="@integer/material_motion_duration_long_1"
+                    android:singleLine="true"
+                    android:textColorHighlight="@color/textColorHighlight"
+                    app:boxBackgroundColor="@color/linear" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnSendComment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/black_default_button"
+                android:fontFamily="@font/inter_medium"
+                android:layout_marginTop="15dp"
+                android:text="Написать Комментарий"
+                android:textAllCaps="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+                app:layout_constraintTop_toBottomOf="@+id/first_comm_layout" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -229,7 +280,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn">
+                app:layout_constraintTop_toBottomOf="@+id/btnSendComment">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/commentsList"

@@ -23,6 +23,8 @@ interface ApiService {
     fun getCommentFlatId(@Path("flatRefId") flatRefId: Int): io.reactivex.rxjava3.core.Observable<List<Comments>>
 
 
+    @POST("comment/Comments")
+    fun createComment(@Body comment: SendComment): Call<Void>
 
     @GET("Towns/")
     fun getTowns(): io.reactivex.rxjava3.core.Observable<List<Town>>

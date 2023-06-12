@@ -31,6 +31,9 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class CurrentApartments : Fragment() {
@@ -52,6 +55,34 @@ class CurrentApartments : Fragment() {
 
         setUpObservers()
         apartment.id?.let { viewModel.getComments(it) }
+
+        binding.btnSendComment.setOnClickListener {
+            val currentDate = getCurrentDate()
+            var user = PrefsManager(requireContext()).getUserId()
+            if (binding.firstCommText.text != null || user!= null || apartment.id!= null){
+                val comm = SendComment(binding.firstCommText.text.toString(), "${currentDate}", user, apartment.id, null, null)
+                val call = ConnectionService().service().createComment(comm)
+                call.enqueue(object : Callback<Void> {
+                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                        if (response.isSuccessful) {
+                            // Запрос успешно выполнен
+                            Toast.makeText(requireContext(), "Комментарий добавлен", Toast.LENGTH_SHORT).show()
+                            setUpObservers()
+                        } else {
+                            // Обработка ошибки
+                        }
+                    }
+                    override fun onFailure(call: Call<Void>, t: Throwable) {
+                        // Обработка ошибки сети
+                    }
+                })
+            }
+        }
+    }
+    fun getCurrentDate(): String {
+        val currentDate = Date()
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        return dateFormat.format(currentDate)
     }
     private fun setUpObservers() {
         viewModel.comments.observe(viewLifecycleOwner) { comments ->
@@ -75,8 +106,6 @@ class CurrentApartments : Fragment() {
     private fun updatePost(post: Comments) {
         adapterComments.updatePost(post)
     }
-
-
     private fun init(id:Int){
         val getApartmentCall = ConnectionService().service().getApartment(id)
         getApartmentCall.enqueue(object : Callback<Apartment> {
@@ -119,6 +148,7 @@ class CurrentApartments : Fragment() {
                                     binding.textView10.text = "Этаж: ${apartment.floor}"
                                     binding.textView9.text = "Комнат: ${apartment.countOfRooms}"
                                     binding.ratingText.text = "${apartment.rating}"
+                                    binding.pice.text = "Цена: ${apartment.pricePerMonth}р"
                                 } else {
                                     // Обработка ошибки получения адреса
                                 }

@@ -34,7 +34,6 @@ class RegistrationFragment : Fragment() {
             MAIN.navController.navigate(R.id.action_registrationFragment_to_signIn)
         }
         binding.authBtn.setOnClickListener {
-            PrefsManager(requireContext()).setLogged(true)
             val login = binding.userLoginText.text.toString()
             val name = binding.userNameText.text.toString()
             val lastName = binding.userLastText.text.toString()
@@ -58,7 +57,13 @@ class RegistrationFragment : Fragment() {
                             createUserCall.enqueue(object : Callback<Void> {
                                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                                     if (response.isSuccessful) {
+                                        PrefsManager(requireContext()).deleteCode()
+                                        PrefsManager(requireContext()).deleteUserId()
+                                        PrefsManager(requireContext()).deleteUserLogin()
+                                        PrefsManager(requireContext()).setCode(false)
+                                        PrefsManager(requireContext()).setLoginig(false)
                                         Toast.makeText(requireContext(), "Пользователь успешно создан", Toast.LENGTH_SHORT).show()
+
                                     } else {
                                         Toast.makeText(requireContext(), "Ошибка создания пользователя", Toast.LENGTH_SHORT).show()
                                     }

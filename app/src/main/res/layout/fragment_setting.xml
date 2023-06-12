@@ -70,7 +70,7 @@
             style="@style/DefaultTextInput"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
+
             android:elevation="8dp"
             android:hint="Фамилия"
             android:theme="@style/EditTextThemeOverlay"
@@ -114,9 +114,9 @@
             android:theme="@style/EditTextThemeOverlay"
             app:counterMaxLength="1"
             app:errorTextAppearance="@style/ErrorTextAppearance"
-            app:layout_constraintEnd_toEndOf="@+id/userLast_layout"
-            app:layout_constraintStart_toStartOf="@+id/userName_layout"
-            app:layout_constraintTop_toBottomOf="@+id/userName_layout">
+            app:layout_constraintEnd_toEndOf="@+id/userCode_layout"
+            app:layout_constraintStart_toStartOf="@+id/codeCheck"
+            app:layout_constraintTop_toBottomOf="@+id/userCode_layout">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/userPassword_text"
@@ -138,29 +138,27 @@
                 app:boxBackgroundColor="@color/linear" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/userCode_layout"
+            android:id="@+id/newPassword_layout"
             style="@style/DefaultTextInput"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:elevation="8dp"
-            android:hint="Код"
+            android:hint="Новый пароль"
+            android:layout_marginTop="5dp"
             android:theme="@style/EditTextThemeOverlay"
             app:counterMaxLength="1"
             app:errorTextAppearance="@style/ErrorTextAppearance"
             app:layout_constraintEnd_toEndOf="@+id/userLast_layout"
-            app:layout_constraintStart_toStartOf="@+id/userLast_layout"
-            app:layout_constraintTop_toBottomOf="@+id/userPassword_layout">
+            app:layout_constraintStart_toStartOf="@+id/userName_layout"
+            app:layout_constraintTop_toBottomOf="@+id/userName_layout">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/userCode_text"
+                android:id="@+id/newPassword_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:backgroundTint="#F0F4F4"
-                android:inputType="number"
                 android:fontFamily="@font/inter_medium"
                 android:lines="1"
                 android:maxLength="20"
@@ -175,15 +173,52 @@
                 app:boxBackgroundColor="@color/linear" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/userCode_layout"
+            style="@style/DefaultTextInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:elevation="8dp"
+            android:hint="Код"
+            android:enabled="false"
+            android:theme="@style/EditTextThemeOverlay"
+            app:counterMaxLength="1"
+            app:errorTextAppearance="@style/ErrorTextAppearance"
+            app:layout_constraintEnd_toEndOf="@+id/userLast_layout"
+            app:layout_constraintStart_toStartOf="@+id/userLast_layout"
+            app:layout_constraintTop_toBottomOf="@+id/newPassword_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userCode_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#F0F4F4"
+                android:fontFamily="@font/inter_medium"
+                android:inputType="number"
+                android:lines="1"
+                android:maxLength="4"
+                android:maxLines="1"
+                android:minLines="1"
+                android:paddingStart="20dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="20dp"
+                android:shadowRadius="@integer/material_motion_duration_long_1"
+                android:singleLine="true"
+                android:textColorHighlight="@color/textColorHighlight"
+                app:boxBackgroundColor="@color/linear" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <CheckBox
             android:id="@+id/codeCheck"
-            android:text="Включить Код"
-            android:fontFamily="@font/inter_medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
+            android:text="Включить Код"
             app:layout_constraintBottom_toBottomOf="@+id/userCode_layout"
-            app:layout_constraintStart_toStartOf="@+id/userPassword_layout"
-            app:layout_constraintTop_toTopOf="@+id/userCode_layout" />
+            app:layout_constraintStart_toStartOf="@+id/newPassword_layout"
+            app:layout_constraintTop_toBottomOf="@+id/newPassword_layout" />
 
         <Button
             android:id="@+id/saveBtn"

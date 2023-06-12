@@ -12,7 +12,7 @@ import com.autonture.originsocialrutravel.Utilis.Classes.Town
 import com.autonture.originsocialrutravel.databinding.CityItemBinding
 import com.autonture.originsocialrutravel.databinding.PlaceItemBinding
 
-class PlaceAdapter (val context: Context, val myPlaces: ArrayList<Place>): RecyclerView.Adapter<PlaceAdapter.PlaceHolder>(){
+class PlaceAdapter (val context: Context, val myPlaces: ArrayList<Place>, val onClick: (Place) -> Unit ={}): RecyclerView.Adapter<PlaceAdapter.PlaceHolder>(){
     var onItemClick: ((Place) -> Unit)? = null
 
     class PlaceHolder(val binding: PlaceItemBinding): RecyclerView.ViewHolder(binding.root) {
@@ -42,5 +42,8 @@ class PlaceAdapter (val context: Context, val myPlaces: ArrayList<Place>): Recyc
     override fun onBindViewHolder(holder: PlaceHolder, position: Int) {
         val post = myPlaces[position]
         holder.bind(post)
+        holder.binding.root.setOnClickListener {
+            onClick(post)
+        }
     }
 }

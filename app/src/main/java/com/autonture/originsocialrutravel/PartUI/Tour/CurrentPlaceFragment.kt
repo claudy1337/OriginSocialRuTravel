@@ -5,11 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.autonture.originsocialrutravel.Utilis.Classes.Place
+import com.autonture.originsocialrutravel.Utilis.Classes.Town
 import com.autonture.originsocialrutravel.databinding.FragmentCurrentPlaceBinding
 
 class CurrentPlaceFragment : Fragment() {
     private lateinit var binding: FragmentCurrentPlaceBinding
 
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val place = arguments?.getSerializable("place") as? Place
+        binding.placeName.text = place!!.title
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

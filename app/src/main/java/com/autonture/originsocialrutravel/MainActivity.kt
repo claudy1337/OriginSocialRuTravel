@@ -17,10 +17,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         navController = Navigation.findNavController(this, R.id.activity_main_nav_host_fragment)
         MAIN = this
         setupWithNavController(binding.bottomNavigationView,navController)
-       // PrefsManager(this).setLogged(false)
     }
 }

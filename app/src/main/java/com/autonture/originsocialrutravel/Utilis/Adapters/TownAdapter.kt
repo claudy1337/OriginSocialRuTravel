@@ -7,11 +7,11 @@ import android.util.Base64
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.autonture.originsocialrutravel.Utilis.Classes.Apartment
 import com.autonture.originsocialrutravel.Utilis.Classes.Town
 import com.autonture.originsocialrutravel.databinding.CityItemBinding
 
-class TownAdapter (val context: Context, val myTowns: ArrayList<Town>): RecyclerView.Adapter<TownAdapter.TownHolder>(){
-    var onItemClick: ((Town) -> Unit)? = null
+class TownAdapter (val context: Context, val myTowns: ArrayList<Town>, val onClick: (Town) -> Unit ={}): RecyclerView.Adapter<TownAdapter.TownHolder>(){
 
     class TownHolder(val binding: CityItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(post: Town) {
@@ -42,8 +42,8 @@ class TownAdapter (val context: Context, val myTowns: ArrayList<Town>): Recycler
     override fun onBindViewHolder(holder: TownHolder, position: Int) {
         val post = myTowns[position]
         holder.bind(post)
-        holder.itemView.setOnClickListener {
-            onItemClick?.invoke(post)
+        holder.binding.root.setOnClickListener {
+            onClick(post)
         }
     }
 }

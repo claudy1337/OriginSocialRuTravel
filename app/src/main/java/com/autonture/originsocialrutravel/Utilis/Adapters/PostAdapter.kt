@@ -39,6 +39,9 @@ class PostAdapter (val context: Context, val myPosts: ArrayList<Post>): Recycler
             if (post.Photos != null) {
                 binding.imagePost.setImageBitmap(post.Photos[0].photo?.let { decodeBase64ToBitmap(it) })
             }
+            else{
+
+            }
         }
         private fun decodeBase64ToBitmap(base64String: String): Bitmap {
             val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)

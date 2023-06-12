@@ -25,12 +25,5 @@ class AnonymousMessengerFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var isLogin = PrefsManager(requireContext()).isLogged()
-        if(isLogin){
-
-        }
-        else{
-
-        }
     }
 }
