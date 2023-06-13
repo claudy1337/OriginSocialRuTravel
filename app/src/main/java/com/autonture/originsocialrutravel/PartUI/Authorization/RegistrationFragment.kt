@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.autonture.originsocialrutravel.MAIN
 import com.autonture.originsocialrutravel.R
 import com.autonture.originsocialrutravel.Utilis.Classes.User
@@ -63,6 +64,7 @@ class RegistrationFragment : Fragment() {
                                         PrefsManager(requireContext()).setCode(false)
                                         PrefsManager(requireContext()).setLoginig(false)
                                         Toast.makeText(requireContext(), "Пользователь успешно создан", Toast.LENGTH_SHORT).show()
+                                        findNavController().navigate(R.id.action_registrationFragment_to_signIn)
 
                                     } else {
                                         Toast.makeText(requireContext(), "Ошибка создания пользователя", Toast.LENGTH_SHORT).show()

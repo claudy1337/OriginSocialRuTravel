@@ -107,6 +107,11 @@
             app:destination="@id/anonymousSettingFragment"
             app:popUpTo="@id/nav_main"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_userSettingFragment_self"
+            app:destination="@id/userSettingFragment"
+            app:popUpTo="@id/nav_main"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/searchApartments"
@@ -138,7 +143,8 @@
         tools:layout="@layout/fragment_registration" >
         <action
             android:id="@+id/action_registrationFragment_to_signIn"
-            app:destination="@id/signIn"/>
+            app:destination="@id/signIn"
+            />
     </fragment>
     <fragment
         android:id="@+id/forgetProfileFragment"

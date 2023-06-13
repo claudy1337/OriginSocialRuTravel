@@ -85,6 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:textSize="16dp"
                     android:fontFamily="@font/inter_medium"
                     android:maxWidth="350dp"
                     android:text="@string/home_title"

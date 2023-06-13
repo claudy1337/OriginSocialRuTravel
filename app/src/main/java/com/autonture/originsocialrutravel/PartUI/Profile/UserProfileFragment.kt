@@ -61,7 +61,7 @@ class UserProfileFragment : Fragment() {
                         binding.userNameTxt.setText("${user?.name} ${user?.surname}")
                         binding.rating.setText("${user?.rating}")
                         binding.userEmailTxt.setText("${user?.email}")
-                        binding.posts.setText("3")
+                        binding.posts.setText("0")
                 } else {
                     // Обработка ошибки
                 }

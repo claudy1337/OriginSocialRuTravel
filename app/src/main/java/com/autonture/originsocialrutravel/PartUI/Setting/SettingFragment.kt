@@ -105,7 +105,10 @@ class SettingFragment : Fragment() {
                 if (code != null){
                     PrefsManager(requireContext()).saveCode(code.toString())
                 }
+                Toast.makeText(requireContext(), "Успешно", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_userSettingFragment_self)
             }
+
         }
 
         binding.logout.setOnClickListener {
