@@ -36,7 +36,7 @@ class PrefsManager(val context: Context)  {
 
     //user login
     fun saveUserLogin(login: String){
-        prefs.edit().putString("UserLogin", Gson().toJson(login)).apply()
+        prefs.edit().putString("UserLogin", login).apply()
 
     }
     fun deleteUserLogin(){

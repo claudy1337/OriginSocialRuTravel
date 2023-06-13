@@ -7,12 +7,11 @@ import android.util.Base64
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.autonture.originsocialrutravel.Utilis.Classes.Apartment
 import com.autonture.originsocialrutravel.Utilis.Classes.Post
 import com.autonture.originsocialrutravel.databinding.PostItemBinding
 
-class PostAdapter (val context: Context, val myPosts: ArrayList<Post>): RecyclerView.Adapter<PostAdapter.PostHolder>() {
-    var onItemClick: ((Post) -> Unit)? = null
-
+class PostAdapter (val context: Context, val myPosts: ArrayList<Post>, val onClick: (Post) -> Unit ={}): RecyclerView.Adapter<PostAdapter.PostHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostHolder {
         return PostHolder(PostItemBinding.inflate(LayoutInflater.from(context), parent, false))
 
@@ -21,8 +20,8 @@ class PostAdapter (val context: Context, val myPosts: ArrayList<Post>): Recycler
     override fun onBindViewHolder(holder: PostHolder, position: Int) {
         val post = myPosts[position]
         holder.bind(post)
-        holder.itemView.setOnClickListener {
-            onItemClick?.invoke(post)
+        holder.binding.root.setOnClickListener {
+            onClick(post)
         }
 
     }

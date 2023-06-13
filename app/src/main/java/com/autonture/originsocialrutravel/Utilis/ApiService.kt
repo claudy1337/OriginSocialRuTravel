@@ -10,8 +10,8 @@ interface ApiService {
     @POST("user/Users/")
     fun createUser(@Body user: User): Call<Void>
 
-    @PUT("users/{id}")
-    fun updateUser(@Path("id") userId: Int, @Body user: User): Call<User>
+    @PUT("user/Users?id={id}")
+    fun updateUser(@Path("id") id: Int, @Body user: PutUser): Call<PutUser>
 
     @GET("user/Users/UserByLogin{login}")
     fun getLogin(@Path("login") login: String): Call<User>
@@ -27,6 +27,9 @@ interface ApiService {
 
     @POST("post/Posts")
     fun sendPost(@Body post: SendPost): Call<Void>
+
+    @DELETE("post/Posts/{id}")
+    fun deletePost(@Path("id") id: Int): Call<Void>
     @GET("comment/Comments/CommentsBySightId/{sightsRefId}")
     fun getCommentPlaceId(@Path("sightsRefId") sightsRefId: Int): io.reactivex.rxjava3.core.Observable<List<Comments>>
 

@@ -9,5 +9,11 @@
         android:id="@+id/postsFragment2"
         android:name="com.autonture.originsocialrutravel.PartUI.Profile.PostsFragment"
         android:label="fragment_posts"
-        tools:layout="@layout/fragment_posts" />
+        tools:layout="@layout/fragment_posts" >
+        <action
+            android:id="@+id/action_postsFragment2_self"
+            app:destination="@id/postsFragment2"
+            app:popUpTo="@id/nav_main"
+            app:popUpToInclusive="true"/>
+    </fragment>
 </navigation>
