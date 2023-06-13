@@ -38,9 +38,6 @@ class PostsFragment : Fragment() {
         if (idUser != null){
             viewModel.getPosts(idUser)
         }
-        binding.btn.setOnClickListener {
-            findNavController().navigate(R.id.action_postsFragment_to_createPostFragment)
-        }
 
     }
 

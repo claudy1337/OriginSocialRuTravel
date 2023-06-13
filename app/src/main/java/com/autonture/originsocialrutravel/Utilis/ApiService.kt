@@ -19,6 +19,9 @@ interface ApiService {
     @GET("user/Users/UserById/{id}")
     fun getId(@Path("id") id: Int): Call<User>
 
+    @GET("photo/Photos/PhotoByUserId/{usersRefId}")
+    fun getUserPhoto(@Path("usersRefId") usersRefId: Int): Call<List<Photo>>
+
     @GET("comment/Comments/CommentsByFlatId/{flatRefId}")
     fun getCommentFlatId(@Path("flatRefId") flatRefId: Int): io.reactivex.rxjava3.core.Observable<List<Comments>>
 

@@ -40,8 +40,8 @@
         android:label="fragment_user_profile"
         tools:layout="@layout/fragment_user_profile" >
         <action
-            android:id="@+id/action_userProfileFragment_to_postsFragment"
-            app:destination="@id/postsFragment" />
+            android:id="@+id/action_userProfileFragment_to_createPostFragment"
+            app:destination="@id/createPostFragment" />
     </fragment>
     <fragment
         android:id="@+id/anonymousProfileFragment"
@@ -174,9 +174,6 @@
         android:name="com.autonture.originsocialrutravel.PartUI.Profile.PostsFragment"
         android:label="fragment_posts"
         tools:layout="@layout/fragment_posts" >
-        <action
-            android:id="@+id/action_postsFragment_to_createPostFragment"
-            app:destination="@id/createPostFragment" />
     </fragment>
     <fragment
         android:id="@+id/createPostFragment"
@@ -184,7 +181,7 @@
         android:label="fragment_create_post"
         tools:layout="@layout/fragment_create_post" >
         <action
-            android:id="@+id/action_createPostFragment_to_postsFragment"
-            app:destination="@id/postsFragment" />
+            android:id="@+id/action_createPostFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
     </fragment>
 </navigation>

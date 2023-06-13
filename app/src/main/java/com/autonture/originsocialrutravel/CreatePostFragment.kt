@@ -35,7 +35,7 @@ class CreatePostFragment : Fragment() {
                     override fun onResponse(call: Call<Void>, response: Response<Void>) {
                         if (response.isSuccessful) {
                             Toast.makeText(requireContext(), "Пост добавлен", Toast.LENGTH_SHORT).show()
-                            findNavController().navigate(R.id.action_createPostFragment_to_postsFragment)
+                            findNavController().navigate(R.id.action_createPostFragment_to_userProfileFragment)
                         } else {
                             // Обработка ошибки
                         }
