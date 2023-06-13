@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.autonture.originsocialrutravel.R
 import com.autonture.originsocialrutravel.Utilis.Adapters.PostAdapter
 import com.autonture.originsocialrutravel.Utilis.Classes.Post
 import com.autonture.originsocialrutravel.Utilis.PrefsManager
@@ -35,6 +37,9 @@ class PostsFragment : Fragment() {
         var idUser = PrefsManager(requireContext()).getUserId()
         if (idUser != null){
             viewModel.getPosts(idUser)
+        }
+        binding.btn.setOnClickListener {
+            findNavController().navigate(R.id.action_postsFragment_to_createPostFragment)
         }
 
     }

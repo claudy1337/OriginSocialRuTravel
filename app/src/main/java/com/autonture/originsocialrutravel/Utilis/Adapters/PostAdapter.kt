@@ -31,16 +31,18 @@ class PostAdapter (val context: Context, val myPosts: ArrayList<Post>): Recycler
 
     class PostHolder(val binding: PostItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(post: Post) {
-            binding.titleTxt.text = post.text
             if (post.User != null){
                 binding.userLoginTxt.setText(post.User.email)
                 binding.userNameTxt.setText("${post.User.name} ${post.User.surname}")
+                binding.titleTxt.setText(post.title)
+                binding.textPostTxt.setText(post.text)
+                binding.datePost.setText(post.date)
             }
             if (post.Photos != null) {
                 binding.imagePost.setImageBitmap(post.Photos[0].photo?.let { decodeBase64ToBitmap(it) })
             }
             else{
-
+                binding.imagePost.setImageBitmap(null)
             }
         }
         private fun decodeBase64ToBitmap(base64String: String): Bitmap {

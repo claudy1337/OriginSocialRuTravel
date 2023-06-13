@@ -85,6 +85,9 @@ class CurrentApartments : Fragment() {
                     }
                 })
             }
+            else{
+                Toast.makeText(requireContext(), "Заполните все поля", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

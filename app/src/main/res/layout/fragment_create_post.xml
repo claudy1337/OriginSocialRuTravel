@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".CreatePostFragment">
+
+
+    <TextView
+        android:layout_marginTop="80dp"
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_bold"
+        android:text="Создать Пост"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView5"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:cardCornerRadius="16dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Изображение"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/titlePost_layout"
+        style="@style/DefaultTextInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:elevation="8dp"
+        android:hint="Заголовок"
+        android:layout_marginTop="30dp"
+        android:theme="@style/EditTextThemeOverlay"
+        app:counterMaxLength="1"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView5">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/titlePost_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#F0F4F4"
+            android:fontFamily="@font/inter_medium"
+            android:lines="1"
+            android:maxLength="15"
+            android:maxLines="1"
+            android:minLines="1"
+            android:paddingStart="20dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="20dp"
+            android:shadowRadius="@integer/material_motion_duration_long_1"
+            android:singleLine="true"
+            android:textColorHighlight="@color/textColorHighlight"
+            app:boxBackgroundColor="@color/linear" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textPost_layout"
+        style="@style/DefaultTextInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:elevation="8dp"
+        android:hint="Текст"
+        android:theme="@style/EditTextThemeOverlay"
+        app:counterMaxLength="1"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titlePost_layout">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textPost_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#F0F4F4"
+            android:fontFamily="@font/inter_medium"
+            android:lines="1"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:minLines="1"
+            android:paddingStart="20dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="20dp"
+            android:shadowRadius="@integer/material_motion_duration_long_1"
+            android:singleLine="true"
+            android:textColorHighlight="@color/textColorHighlight"
+            app:boxBackgroundColor="@color/linear" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/sendBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/black_round_default_button"
+        android:elevation="30dp"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="Написать"
+        android:textAllCaps="false"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/textPost_layout"
+        app:layout_constraintStart_toStartOf="@+id/textPost_layout"
+        app:layout_constraintTop_toBottomOf="@+id/textPost_layout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

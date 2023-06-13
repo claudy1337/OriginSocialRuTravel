@@ -22,7 +22,8 @@ interface ApiService {
     @GET("comment/Comments/CommentsByFlatId/{flatRefId}")
     fun getCommentFlatId(@Path("flatRefId") flatRefId: Int): io.reactivex.rxjava3.core.Observable<List<Comments>>
 
-
+    @POST("post/Posts")
+    fun sendPost(@Body post: SendPost): Call<Void>
     @GET("comment/Comments/CommentsBySightId/{sightsRefId}")
     fun getCommentPlaceId(@Path("sightsRefId") sightsRefId: Int): io.reactivex.rxjava3.core.Observable<List<Comments>>
 
@@ -49,8 +50,8 @@ interface ApiService {
     fun getApartment(@Path("id") id: Int): Call<Apartment>
     @GET("post/Posts/PostByUserId/{id}")
     fun getPostUserId(@Path("id") id: Int): io.reactivex.rxjava3.core.Observable<List<Post>>
-    @GET("photo/Photos/PhotoByPostId/{id}")
-    fun getPhotoPost(@Path("id", encoded = false) id: Int): io.reactivex.rxjava3.core.Observable<List<Photo>>
+    @GET("photo/Photos/PhotoByPostId/{postsRefId}")
+    fun getPhotoPost(@Path("postsRefId", encoded = false) postsRefId: Int): io.reactivex.rxjava3.core.Observable<List<Photo>>
     @GET("user/Users/UserById/{id}")
     fun getUserPost(@Path("id", encoded = false) id: Int): io.reactivex.rxjava3.core.Observable<User>
 
