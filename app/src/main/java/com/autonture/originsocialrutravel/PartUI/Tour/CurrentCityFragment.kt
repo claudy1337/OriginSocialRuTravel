@@ -9,10 +9,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.android.volley.Request
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.autonture.originsocialrutravel.Utilis.Classes.Town
 import com.autonture.originsocialrutravel.databinding.FragmentCurrentCityBinding
+import com.squareup.picasso.Picasso
+import org.json.JSONObject
 
-
+const val API_KEY = "35e5aac3ab4143e9952204811232005"
 class CurrentCityFragment : Fragment() {
    private lateinit var binding: FragmentCurrentCityBinding
 
@@ -21,6 +26,7 @@ class CurrentCityFragment : Fragment() {
         val city = arguments?.getSerializable("city") as? Town
 
         city!!.id?.let { init(it, city) }
+        city.name?.let { getTemp(it) }
 
     }
     private fun init(id:Int, city:Town){
@@ -42,6 +48,25 @@ class CurrentCityFragment : Fragment() {
     ): View? {
         binding = FragmentCurrentCityBinding.inflate(layoutInflater, container, false)
         return binding.root
+    }
+    fun getTemp(name:String){
+        val url = "http://api.weatherapi.com/v1/current.json" +
+                "?key=$API_KEY&q=$name&aqi=no"
+        val queue = Volley.newRequestQueue(requireContext())
+        val stringRequest = StringRequest(
+            Request.Method.GET,
+            url, {
+                    responce ->
+                val obj = JSONObject(responce)
+                val temp = obj.getJSONObject("current")
+                binding.tempC.setText(temp.getString("temp_c"))
+
+            },
+            {
+
+            }
+        )
+        queue.add(stringRequest)
     }
 
     companion object {

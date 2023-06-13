@@ -38,6 +38,9 @@ interface ApiService {
 
     @GET("Towns/")
     fun getTowns(): io.reactivex.rxjava3.core.Observable<List<Town>>
+
+    @GET("Towns")
+    suspend fun getTownsSearch(): List<Town>
     @GET("Towns/{townsId}")
     fun getTownsId(@Path("townsId") townsId: Int): Call<Town>
 

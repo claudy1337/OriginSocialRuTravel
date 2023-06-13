@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_searchTour_to_currentPlaceFragment"
             app:destination="@id/currentPlaceFragment" />
+        <action
+            android:id="@+id/action_searchTour_to_searchCityFragment"
+            app:destination="@id/searchCityFragment" />
     </fragment>
     <fragment
         android:id="@+id/signIn"
@@ -190,4 +193,9 @@
             android:id="@+id/action_createPostFragment_to_userProfileFragment"
             app:destination="@id/userProfileFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/searchCityFragment"
+        android:name="com.autonture.originsocialrutravel.SearchCityFragment"
+        android:label="fragment_search_city"
+        tools:layout="@layout/fragment_search_city" />
 </navigation>

@@ -36,7 +36,6 @@ class PostAdapter (val context: Context, val myPosts: ArrayList<Post>, val onCli
                 binding.titleTxt.setText(post.title)
                 binding.textPostTxt.setText(post.text)
                 binding.datePost.setText(post.date)
-                val dsf = post.Photos[0].photo
             }
             if (post.Photos != null) {
                 binding.imagePost.setImageBitmap(post.Photos[0].photo?.let { decodeBase64ToBitmap(it) })

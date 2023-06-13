@@ -44,6 +44,10 @@ class HomeTourFragment : Fragment() {
         setUpPlaceObservers()
         viewModelTown.getTowns()
         viewModelPlace.getPlaces()
+
+        binding.searchRegion.setOnClickListener {
+            findNavController().navigate(R.id.action_searchTour_to_searchCityFragment)
+        }
     }
 
     private fun setUpObservers() {
